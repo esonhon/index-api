@@ -15,9 +15,9 @@ public class LoginResponse extends ServiceResponse {
 
     private UserApp entity;
 
-    public LoginResponse(Status status, UserApp admin) {
+    public LoginResponse(Status status, UserApp userApp) {
         super(status);
-        this.entity = admin;
+        this.entity = userApp;
     }
 
     public LoginResponse() {
