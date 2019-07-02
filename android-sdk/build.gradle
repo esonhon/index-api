@@ -11,13 +11,18 @@ buildscript {
         // in the individual module build.gradle files
     }
 }
-
+allprojects {
+    repositories {
+        google() // and here
+        jcenter()
+    }
+}
 android {
     signingConfigs {
         irext_key {
             keyAlias 'irext-android'
             keyPassword 'irext-android'
-            storeFile file('D:/Project/Iot_Work/irext/keys/irext-android.jks')
+            storeFile file('/home/strawmanbobi/Develop/project/irext/keys/irext-android.jks')
             storePassword 'irext-android'
         }
     }
@@ -25,9 +30,9 @@ android {
     buildToolsVersion "25.0.0"
     defaultConfig {
         minSdkVersion 19
-        targetSdkVersion 23
-        versionCode 3
-        versionName '0.1.5'
+        targetSdkVersion 25
+        versionCode 5
+        versionName '0.2.2'
         signingConfig signingConfigs.irext_key
     }
     buildTypes {
@@ -35,7 +40,7 @@ android {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.irext_key
-            versionNameSuffix '0.1.5'
+            versionNameSuffix '0.2.2'
         }
         debug {
             debuggable true
